@@ -17,10 +17,10 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('no_invoice',50);
             $table->unsignedBigInteger('endorse_id');
-            $table->string('name',50);
-            $table->integer('phone');
-            $table->string('address',150);
-            $table->text('note');
+            $table->string('nama',50);
+            $table->bigInteger('email');
+            $table->string('alamat',150);
+            $table->text('catatan');
             $table->string('foto',100);
             $table->timestamps();
 

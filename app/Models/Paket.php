@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Endorse extends Model
+class Paket extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nama','umur','alamat','instagram','number','tinggi','berat','foto','minat'
+        'endorse_id','nama','keterangan','harga'
     ];
+
+    public function endorse()
+    {
+        return $this->belongsTo(Endorse::class);
+    }
 }

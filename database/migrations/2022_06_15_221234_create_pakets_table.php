@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEndorsesTable extends Migration
+class CreatePaketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,15 @@ class CreateEndorsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('endorses', function (Blueprint $table) {
+        Schema::create('pakets', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('endorse_id');
             $table->string('nama',50);
-            $table->integer('umur');
-            $table->string('alamat',100);
-            $table->text('instagram');
-            $table->integer('number');
-            $table->integer('tinggi');
-            $table->integer('berat');
-            $table->string('foto',100);
-            $table->string('minat',100);
+            $table->text('keterangan');
+            $table->string('harga');
             $table->timestamps();
+
+            $table->foreign('endorse_id')->references('id')->on('endorses');
         });
     }
 
@@ -35,6 +32,6 @@ class CreateEndorsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('endorses');
+        Schema::dropIfExists('pakets');
     }
 }

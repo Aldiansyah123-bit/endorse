@@ -43,12 +43,12 @@
                                         <div class="card-body p-0">
                                             <div class="row p-5">
                                                 <div class="col-md-6">
-                                                    <img src="http://via.placeholder.com/400x90?text=logo">
+                                                    <img src="{{ asset('admin/app-assets/images/logo/logo-primary.png') }}">
                                                 </div>
 
                                                 <div class="col-md-6 text-right">
-                                                    <p class="font-weight-bold mb-1">Invoice #550</p>
-                                                    <p class="text-muted">Due to: 4 Dec, 2019</p>
+                                                    <p class="font-weight-bold mb-1">INVOICE {{ $data->no_invoice }}</p>
+                                                    <p class="text-muted">Tanggal {{ Date::parse($data->crated_at)->format('j F Y') }}</p>
                                                 </div>
                                             </div>
 
@@ -57,18 +57,15 @@
                                             <div class="row pb-5 p-5">
                                                 <div class="col-md-6">
                                                     <p class="font-weight-bold mb-4">Informasi Pemesanan</p>
-                                                    <p class="mb-1">{{ $data->name }}</p>
-                                                    <p>Acme Inc</p>
-                                                    <p class="mb-1">{{ $data->address }}</p>
-                                                    <p class="mb-1">{{ $data->phone }}</p>
+                                                    <p class="mb-1">Nama : {{ $data->name }}</p>
+                                                    {{-- <p>Acme Inc</p> --}}
+                                                    <p class="mb-1">Alamat : {{ $data->address }}</p>
+                                                    <p class="mb-1">No Telpn / WhatsApp : 0{{ $data->phone }}</p>
                                                 </div>
 
                                                 <div class="col-md-6 text-right">
-                                                    <p class="font-weight-bold mb-4">Payment Details</p>
-                                                    <p class="mb-1"><span class="text-muted">VAT: </span> 1425782</p>
-                                                    <p class="mb-1"><span class="text-muted">VAT ID: </span> 10253642</p>
-                                                    <p class="mb-1"><span class="text-muted">Payment Type: </span> Root</p>
-                                                    <p class="mb-1"><span class="text-muted">Name: </span> John Doe</p>
+                                                    <p class="font-weight-bold mb-4">Catatan</p>
+                                                    <p class="mb-1">{{ $data->note }}</p>
                                                 </div>
                                             </div>
 
@@ -83,38 +80,20 @@
                                                     <table class="table">
                                                         <thead>
                                                             <tr>
-                                                                <th class="border-0 text-uppercase small font-weight-bold">ID</th>
-                                                                <th class="border-0 text-uppercase small font-weight-bold">Item</th>
-                                                                <th class="border-0 text-uppercase small font-weight-bold">Description</th>
-                                                                <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
-                                                                <th class="border-0 text-uppercase small font-weight-bold">Unit Cost</th>
-                                                                <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                                                <th class="border-0 text-uppercase small font-weight-bold">Foto</th>
+                                                                <th class="border-0 text-uppercase small font-weight-bold">Nama Endorse</th>
+                                                                <th class="border-0 text-uppercase small font-weight-bold">Umur</th>
+                                                                <th class="border-0 text-uppercase small font-weight-bold">Alamat</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td>1</td>
-                                                                <td>Software</td>
-                                                                <td>LTS Versions</td>
-                                                                <td>21</td>
-                                                                <td>$321</td>
-                                                                <td>$3452</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Software</td>
-                                                                <td>Support</td>
-                                                                <td>234</td>
-                                                                <td>$6356</td>
-                                                                <td>$23423</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Software</td>
-                                                                <td>Sofware Collection</td>
-                                                                <td>4534</td>
-                                                                <td>$354</td>
-                                                                <td>$23434</td>
+                                                                <td>
+                                                                    <img src="{{ asset('storage/avatar') }}/{{ $data->endorse->foto }}" width="200">
+                                                                </td>
+                                                                <td>{{ $data->endorse->name }}</td>
+                                                                <td>{{ $data->endorse->age }}</td>
+                                                                <td>{{ $data->endorse->address }}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -123,18 +102,8 @@
 
                                             <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                                                 <div class="py-3 px-5 text-right">
-                                                    <div class="mb-2">Grand Total</div>
-                                                    <div class="h2 font-weight-light">$234,234</div>
-                                                </div>
-
-                                                <div class="py-3 px-5 text-right">
-                                                    <div class="mb-2">Discount</div>
-                                                    <div class="h2 font-weight-light">10%</div>
-                                                </div>
-
-                                                <div class="py-3 px-5 text-right">
-                                                    <div class="mb-2">Sub - Total amount</div>
-                                                    <div class="h2 font-weight-light">$32,432</div>
+                                                    <div class="mb-2">Harga</div>
+                                                    <div class="h2 font-weight-light">{{ number_format($data->endorse->price) }}</div>
                                                 </div>
                                             </div>
                                         </div>

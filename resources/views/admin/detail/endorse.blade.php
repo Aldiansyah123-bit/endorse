@@ -26,32 +26,40 @@
                                         <table>
                                             <tr>
                                                 <td class="font-weight-bold">Nama</td>
-                                                <td>{{ $data->name }}</td>
+                                                <td>{{ $data->nama }}</td>
                                             </tr>
                                             <tr>
                                                 <td class="font-weight-bold">Umur</td>
-                                                <td>{{ $data->age }}</td>
+                                                <td>{{ $data->umur }}</td>
                                             </tr>
                                             <tr>
                                                 <td class="font-weight-bold">Alamat</td>
-                                                <td>{{ $data->address }}</td>
+                                                <td>{{ $data->alamat }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-weight-bold">Tinggi Badan</td>
+                                                <td>{{ $data->tinggi }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-weight-bold">Berat Badan</td>
+                                                <td>{{ $data->berat }}</td>
                                             </tr>
                                         </table>
                                     </div>
                                     <div class="col-12 col-md-12 col-lg-5">
                                         <table class="ml-0 ml-sm-0 ml-lg-0">
                                             <tr>
-                                                <td class="font-weight-bold">Harga</td>
-                                                <td>{{ $data->price }}</td>
+                                                <td class="font-weight-bold">Nama Instgram</td>
+                                                <td>{{ $data->instgram }}</td>
                                             </tr>
                                             <tr>
-                                                <td class="font-weight-bold">Perusahaan</td>
-                                                <td>{{ $data->company }}</td>
+                                                <td class="font-weight-bold">Jumlah Followers</td>
+                                                <td>{{ $data->number }}</td>
                                             </tr>
-                                            <tr>
+                                            {{-- <tr>
                                                 <td class="font-weight-bold">Alamat Perusahaan</td>
                                                 <td>{{ $data->address_company }}</td>
-                                            </tr>
+                                            </tr> --}}
                                         </table>
                                     </div>
                                     <div class="col-12">
@@ -67,10 +75,10 @@
                     <div class="col-md-6 col-12 ">
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title mb-2">Informasi Pengalaman</div>
+                                <div class="card-title mb-2">Minat & Bakat</div>
                             </div>
                             <div class="card-body">
-                                {{ $data->description }}
+                                {{ $data->minat }}
                             </div>
                         </div>
                     </div>

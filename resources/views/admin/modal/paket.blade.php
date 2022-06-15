@@ -7,51 +7,26 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('endorse.update',[$item->id]) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('paket.update',[$item->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
-                    <label>Nama: </label>
+                    <label>Nama Endorse: </label>
                     <div class="form-group">
-                        <input type="text" name="nama" placeholder="Nama" class="form-control" value="{{ $itemm->name }}">
+                        <input type="text" name="name" placeholder="Nama Endorse" class="form-control" value="{{ $item-> }}">
                     </div>
-                    <label>Umur: </label>
+                    <label>Nama Paket : </label>
                     <div class="form-group">
-                        <input type="number" name="umur" placeholder="Umur" class="form-control" value="{{ $itemm->age }}">
+                        <input type="text" name="nama" placeholder="Nama Paket" class="form-control" value="{{ $item->nama }}">
                     </div>
-                    <label>Alamat: </label>
+                    <label>Keterangan: </label>
                     <div class="form-group">
-                        <input type="text" name="alamat" placeholder="Alamat" class="form-control" value="{{ $itemm->address }}">
-                    </div>
-
-                    <label>Nama Instagram: </label>
-                    <div class="form-group">
-                        <input type="text" name="instagram" placeholder="Nama Instagram" class="form-control" value="{{ $itemm->instagram }}">
+                        <input type="text" name="keterangan" placeholder="Keterangan" class="form-control" value="{{ $item->keterangan }}">
                     </div>
 
-                    <label>Jumlah Follower : </label>
+                    <label>Harga : </label>
                     <div class="form-group">
-                        <input type="number" name="number" placeholder="Jumlah Follower" class="form-control" value="{{ $itemm->number }}">
-                    </div>
-                    <label>Tinggi Badan: </label>
-                    <div class="form-group">
-                        <input type="number" name="tinggi" placeholder="Tinggi Badan" class="form-control" value="{{ $itemm->tinggi }}">
-                    </div>
-                    <label>Berat Badan: </label>
-                    <div class="form-group">
-                        <input type="number" name="berat" placeholder="Berat Badan" class="form-control" value="{{ $itemm->berat }}">
-                    </div>
-
-
-                    <label>Foto: </label>
-                    <div class="form-group">
-                        <input type="file" name="foto" placeholder="foto" class="form-control" value="{{ $item->foto }}">
-                    </div>
-
-
-                    <label>Minat & Bakat: </label>
-                    <div class="form-group">
-                        <textarea type="text" name="minat" placeholder="Minat & Bakat" class="form-control" rows="3"></textarea>
+                        <input type="text" name="harga" placeholder="Nama Instagram" class="form-control" value="{{ $item->harga }}">
                     </div>
                 </div>
                 <div class="modal-footer">

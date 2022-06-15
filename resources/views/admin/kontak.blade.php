@@ -9,7 +9,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Data Endorse</h2>
+                        <h2 class="content-header-title float-left mb-0">Data Kontak</h2>
                     </div>
                 </div>
             </div>
@@ -22,9 +22,9 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
-                                    <button type="button" class="btn btn-outline-primary mr-1 mb-1" data-toggle="modal" data-target="#CreateAdd">
+                                    {{-- <button type="button" class="btn btn-outline-primary mr-1 mb-1" data-toggle="modal" data-target="#CreateAdd">
                                         Tambah Data
-                                    </button>
+                                    </button> --}}
 
                                     @if (session('message'))
                                         <div class="alert alert-primary" role="alert">
@@ -43,11 +43,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nama</th>
-                                                    <th>Umur</th>
-                                                    <th>Alamat</th>
-                                                    <th>Nama Instagram</th>
-                                                    <th>Jumlah Follower</th>
-                                                    <th>Aksi</th>
+                                                    <th>Email</th>
+                                                    <th>Pesan</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -55,12 +53,9 @@
                                                     <tr>
                                                         <td class="product-img"><img src="{{ asset('storage/avatar') }}/{{ $item->foto }}" alt="Img placeholder" width="200">
                                                         <td>{{ $item->nama }}</td>
-                                                        <td>{{ $item->umur }}</td>
-                                                        <td>{{ $item->alamat }}</td>
-                                                        <td>{{ $item->instgram }}</td>
-                                                        <td>{{ $item->number }}</td>
+                                                        <td>{{ $item->email }}</td>
+                                                        <td>{{ $item->pesan }}</td>
                                                         <td>
-                                                            <a href="{{ route('endorse.show',[$item->id]) }}" class="btn btn-icon btn-icon rounded-circle btn-flat-primary mr-1 mb-1"><i class="feather icon-eye"></i></a>
                                                             <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-success mr-1 mb-1" data-toggle="modal" data-target="#Update{{ $item->id }}"><i class="feather icon-edit"></i></button>
                                                             <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-danger mr-1 mb-1" data-toggle="modal" data-target="#Delete{{ $item->id }}"><i class="feather icon-trash"></i></button>
                                                         </td>
@@ -91,50 +86,25 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('endorse.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('paket.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <label>Nama: </label>
+                    <label>Nama Endorse: </label>
                     <div class="form-group">
-                        <input type="text" name="nama" placeholder="Nama" class="form-control">
+                        <input type="text" name="name" placeholder="Nama Endorse" class="form-control">
                     </div>
-                    <label>Umur: </label>
+                    <label>Nama Paket : </label>
                     <div class="form-group">
-                        <input type="number" name="umur" placeholder="Umur" class="form-control">
+                        <input type="text" name="nama" placeholder="Nama Paket" class="form-control">
                     </div>
-                    <label>Alamat: </label>
+                    <label>Keterangan: </label>
                     <div class="form-group">
-                        <input type="text" name="alamat" placeholder="Alamat" class="form-control">
-                    </div>
-
-                    <label>Nama Instagram: </label>
-                    <div class="form-group">
-                        <input type="text" name="instagram" placeholder="Nama Instagram" class="form-control">
+                        <input type="text" name="keterangan" placeholder="Keterangan" class="form-control">
                     </div>
 
-                    <label>Jumlah Follower : </label>
+                    <label>Harga : </label>
                     <div class="form-group">
-                        <input type="number" name="number" placeholder="Jumlah Follower" class="form-control">
-                    </div>
-                    <label>Tinggi Badan: </label>
-                    <div class="form-group">
-                        <input type="number" name="tinggi" placeholder="Tinggi Badan" class="form-control">
-                    </div>
-                    <label>Berat Badan: </label>
-                    <div class="form-group">
-                        <input type="number" name="berat" placeholder="Berat Badan" class="form-control">
-                    </div>
-
-
-                    <label>Foto: </label>
-                    <div class="form-group">
-                        <input type="file" name="foto" placeholder="foto" class="form-control">
-                    </div>
-
-
-                    <label>Minat & Bakat: </label>
-                    <div class="form-group">
-                        <textarea type="text" name="minat" placeholder="Minat & Bakat" class="form-control" rows="3"></textarea>
+                        <input type="text" name="harga" placeholder="Nama Instagram" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">

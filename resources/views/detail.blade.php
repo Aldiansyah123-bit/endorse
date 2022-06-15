@@ -43,18 +43,20 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <h5>{{ $data->name }}
+                                <h5>Nama : {{ $data->nama }}
                                 </h5>
-                                <p class="text-success font-medium-2 mr-1 mb-0">Umur : {{ $data->age }} Tahun</p>
+                                <p class="text-success font-medium-2 mr-1 mb-0">Umur : {{ $data->umur }} Tahun</p>
                                 <hr>
-                                <p>{{ $data->description }}</p>
-                                <div class="ecommerce-details-price d-flex flex-wrap">
+                                <p>Minat & Bakat {{ $data->minat }}</p>
+                                {{-- <div class="ecommerce-details-price d-flex flex-wrap">
                                     <p class="text-primary font-medium-3 mr-1 mb-0">Rp. {{ number_format($data->price) }}</p>
-                                </div>
+                                </div> --}}
                                 <hr>
-                                <p class="font-weight-bold mb-25"> <i class="feather icon-package mr-50 font-medium-2"></i>{{ $data->company }}
+                                <p class="font-weight-bold mb-25"> Alamat : {{ $data->alamat }}
                                 </p>
-                                <p class="font-weight-bold"> <i class="feather icon-navigation mr-50 font-medium-2"></i>{{ $data->address_company }}
+                                <p class="font-weight-bold"> Tinggi Badan : {{ $data->tinggi }}
+                                    <p class="font-weight-bold"> Berat Badan : {{ $data->berat }}
+                                    {{-- <p class="font-weight-bold"> <i class="feather icon-navigation mr-50 font-medium-2"></i>{{ $data->address_company }} --}}
                                 </p>
                             </div>
                         </div>
@@ -71,34 +73,35 @@
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label>Nama</label>
+                                                            <label>Nama / Olshop</label>
                                                             <div class="controls">
                                                                 <input type="text" hidden name="endorse_id" class="form-control" value="{{ $data->id }}">
-                                                                <input type="text" name="name" class="form-control" data-validation-required-message="Nama Wajib di Isi" placeholder="Masukkan Nama Lengkap">
+                                                                <input type="text" name="nama" class="form-control" data-validation-required-message="Nama Wajib di Isi" placeholder="Masukkan Nama / Olshop Anda">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label>Nomor Telepon / WhatsApp</label>
+                                                            <label>Email</label>
                                                             <div class="controls">
-                                                                <input type="number" name="phone" class="form-control" data-validation-required-message="Nomor Telepon Wajib di Isi" placeholder="Massukkan Nomor Telepon">
+                                                                <input type="email" name="email" class="form-control" data-validation-required-message="Email Wajib di Isi" placeholder="Massukkan Email">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
-                                                            <label>Upload Bukti Pembayaran</label>
+                                                            <label>Upload Bukti Pembayaran</label><br>
                                                             <div class="controls">
                                                                 <input type="file" name="foto" class="form-control" data-validation-required-message="Bukti Pembayaran Wajib di Isi" placeholder="Upload Bukti Pembayaran" accept="image/jpeg,image/png,image/jpg">
                                                             </div>
+                                                            <label class="font-size:10px;"><b> No Rekening Pembayaran : 19384958494 </b></label>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Alamat</label>
                                                             <div class="controls">
-                                                                <textarea type="text" name="address" class="form-control" data-validation-required-message="Alamat Anda Wajib di Isi" placeholder="Masukkan Alamat Anda" rows="3"></textarea>
+                                                                <textarea type="text" name="alamat" class="form-control" data-validation-required-message="Alamat Anda Wajib di Isi" placeholder="Masukkan Alamat Anda" rows="3"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -106,7 +109,7 @@
                                                         <div class="form-group">
                                                             <label>Catatan</label>
                                                             <div class="controls">
-                                                                <textarea type="text" name="note" class="form-control" placeholder="Masukkan Catatan Anda" rows="3"></textarea>
+                                                                <textarea type="text" name="catatan" class="form-control" placeholder="Masukkan Catatan Anda" rows="3"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>

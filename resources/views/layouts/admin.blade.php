@@ -128,10 +128,16 @@
                 </li>
                 <li class="navigation-header"><span>pages</span>
                 <li class="nav-item {{ request()->is('endorse')? 'active': '' }} ">
-                    <a href="{{ route('endorse.index') }}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Datatable">Endorse</span></a>
+                    <a href="{{ route('endorse.index') }}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Datatable">Data Endorse</span></a>
+                </li>
+                <li class="nav-item {{ request()->is('paket')? 'active': '' }} ">
+                    <a href="{{ route('paket.index') }}"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Datatable">Data Paket</span></a>
                 </li>
                 <li class="nav-item {{ request()->is('transaction')? 'active': '' }}">
-                    <a href="{{ route('transaction.index') }}"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Datatable">Transaksi</span></a>
+                    <a href="{{ route('transaction.index') }}"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Datatable">Data Transaksi</span></a>
+                </li>
+                <li class="nav-item {{ request()->is('kontak')? 'active': '' }}">
+                    <a href="{{ route('kontak.index') }}"><i class="feather icon-clipboard"></i><span class="menu-title" data-i18n="Datatable">Kontak</span></a>
                 </li>
             </ul>
         </div>
