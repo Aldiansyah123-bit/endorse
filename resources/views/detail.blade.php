@@ -19,6 +19,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/plugins/forms/validation/form-validation.css">
     <!-- END: Page CSS-->
 
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/pages/app-ecommerce-details.css">
+    <!-- END: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/tables/datatable/datatables.min.css">
+
+
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
@@ -47,7 +53,7 @@
                                 </h5>
                                 <p class="text-success font-medium-2 mr-1 mb-0">Umur : {{ $data->umur }} Tahun</p>
                                 <hr>
-                                <p>Minat & Bakat {{ $data->minat }}</p>
+                                <p>Minat & Bakat : {{ $data->minat }}</p>
                                 {{-- <div class="ecommerce-details-price d-flex flex-wrap">
                                     <p class="text-primary font-medium-3 mr-1 mb-0">Rp. {{ number_format($data->price) }}</p>
                                 </div> --}}
@@ -58,6 +64,24 @@
                                     <p class="font-weight-bold"> Berat Badan : {{ $data->berat }}
                                     {{-- <p class="font-weight-bold"> <i class="feather icon-navigation mr-50 font-medium-2"></i>{{ $data->address_company }} --}}
                                 </p>
+                                <hr>
+                                <form action="/transaksi" method="POST" enctype="multipart/form-data" class="form-horizontal" novalidate>
+                                    @csrf
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Harga</label>
+                                        <ul class="list-unstyled mb-0">
+                                            @foreach ($paket as $item)
+                                                <li class="d-inline-block mr-2">
+                                                    <fieldset>
+                                                        <label>
+                                                            <input type="radio" name="harga" data-toggle="modal" data-target="#Update" value="{{ $item->harga }}">
+                                                            {{ $item->nama }}
+                                                        </label>
+                                                    </fieldset>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                             </div>
                         </div>
                         <div class="row">
@@ -68,8 +92,8 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form action="/transaksi" method="POST" enctype="multipart/form-data" class="form-horizontal" novalidate>
-                                                @csrf
+                                            {{-- <form action="/transaksi" method="POST" enctype="multipart/form-data">
+                                                @csrf --}}
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
@@ -97,6 +121,7 @@
                                                             <label class="font-size:10px;"><b> No Rekening Pembayaran : 19384958494 </b></label>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Alamat</label>
@@ -115,7 +140,7 @@
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-outline-primary">Checkout</button>
-                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -124,12 +149,48 @@
                     </div>
                 </div>
             </section>
+        </div>
+    </div></form>
+</div>
+<!-- END: Content-->
+<div class="modal fade text-left" id="Update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel33">Detail Paket</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
 
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="border-0 text-uppercase small font-weight-bold">Nama Paket :</th>
+                                <td>
+                                    <b> {{ $item->nama }}</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="border-0 text-uppercase small font-weight-bold">Harga :</th>
+                                <th> Rp. {{ number_format($item->harga) }}</th>
+                            </tr>
+                            <tr>
+                                <th class="border-0 text-uppercase small font-weight-bold">Keterangan :</th>
+                                <th>{{ $item->keterangan }}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+            </div>
         </div>
     </div>
 </div>
-<!-- END: Content-->
-<!-- END: Content-->
 
 @endsection
 @section('js')
@@ -153,5 +214,17 @@
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('admin') }}/app-assets/js/scripts/forms/validation/form-validation.js"></script>
     <!-- END: Page JS-->
+    <script src="{{ asset('admin') }}/app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
+
+        <!-- BEGIN: Page Vendor JS-->
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+        <script src="{{ asset('admin') }}/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+
 
 @endsection

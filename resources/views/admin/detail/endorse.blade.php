@@ -40,17 +40,18 @@
                                                 <td class="font-weight-bold">Tinggi Badan</td>
                                                 <td>{{ $data->tinggi }}</td>
                                             </tr>
-                                            <tr>
-                                                <td class="font-weight-bold">Berat Badan</td>
-                                                <td>{{ $data->berat }}</td>
-                                            </tr>
                                         </table>
                                     </div>
                                     <div class="col-12 col-md-12 col-lg-5">
                                         <table class="ml-0 ml-sm-0 ml-lg-0">
+
+                                            <tr>
+                                                <td class="font-weight-bold">Berat Badan</td>
+                                                <td>{{ $data->berat }}</td>
+                                            </tr>
                                             <tr>
                                                 <td class="font-weight-bold">Nama Instgram</td>
-                                                <td>{{ $data->instgram }}</td>
+                                                <td>{{ $data->instagram }}</td>
                                             </tr>
                                             <tr>
                                                 <td class="font-weight-bold">Jumlah Followers</td>

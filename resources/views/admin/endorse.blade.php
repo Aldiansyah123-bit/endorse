@@ -42,6 +42,7 @@
                                         <table class="table zero-configuration">
                                             <thead>
                                                 <tr>
+                                                    <th>Foto</th>
                                                     <th>Nama</th>
                                                     <th>Umur</th>
                                                     <th>Alamat</th>
@@ -57,7 +58,7 @@
                                                         <td>{{ $item->nama }}</td>
                                                         <td>{{ $item->umur }}</td>
                                                         <td>{{ $item->alamat }}</td>
-                                                        <td>{{ $item->instgram }}</td>
+                                                        <td>{{ $item->instagram }}</td>
                                                         <td>{{ $item->number }}</td>
                                                         <td>
                                                             <a href="{{ route('endorse.show',[$item->id]) }}" class="btn btn-icon btn-icon rounded-circle btn-flat-primary mr-1 mb-1"><i class="feather icon-eye"></i></a>

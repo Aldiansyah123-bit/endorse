@@ -41,14 +41,15 @@ class EndorseController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'name'              => 'required',
-            'age'               => 'required',
-            'address'           => 'required',
-            'description'       => 'required',
-            'price'             => 'required',
-            'foto'              => 'required',
-            'company'           => 'required',
-            'address_company'   => 'required',
+            'nama'      => 'required',
+            'umur'      => 'required',
+            'alamat'    => 'required',
+            'instagram' => 'required',
+            'number'    => 'required',
+            'foto'      => 'required',
+            'tinggi'    => 'required',
+            'berat'     => 'required',
+            'minat'     => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -59,14 +60,15 @@ class EndorseController extends Controller
         $file->storeAs('public/avatar', $file->hashName());
 
         $data = Endorse::create([
-            'name'              => $request->name,
-            'age'               => $request->age,
-            'address'           => $request->address,
-            'description'       => $request->description,
-            'price'             => $request->price,
-            'foto'              => $file->hashName(),
-            'company'           => $request->company,
-            'address_company'   => $request->address_company
+            'nama'      => $request->nama,
+            'umur'      => $request->umur,
+            'alamat'    => $request->alamat,
+            'instagram' => $request->instagram,
+            'number'    => $request->number,
+            'foto'      => $file->hashName(),
+            'tinggi'    => $request->tinggi,
+            'berat'     => $request->berat,
+            'minat'     => $request->minat
 
         ]);
 
@@ -114,15 +116,19 @@ class EndorseController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'name'              => 'required',
-            'age'               => 'required',
-            'address'           => 'required',
-            'description'       => 'required',
-            'price'             => 'required',
-            // 'foto'              => 'required',
-            'company'           => 'required',
-            'address_company'   => 'required',
+            'nama'      => 'required',
+            'umur'      => 'required',
+            'alamat'    => 'required',
+            'instagram' => 'required',
+            'number'    => 'required',
+            'tinggi'    => 'required',
+            'berat'     => 'required',
+            'minat'     => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json(['Error' => $validator->errors()], 401);
+        }
 
         if ($request->file('foto')) {
             // Storage::disk('local')->delete('public/avatar'.basename($foto));
@@ -130,26 +136,27 @@ class EndorseController extends Controller
             $file       = $request->file('foto');
             $file->storeAs('public/avatar', $file->hashName());
             Endorse::findOrFail($id)->update([
-                'name'              => $request->name,
-                'age'               => $request->age,
-                'address'           => $request->address,
-                'description'       => $request->description,
-                'price'             => $request->price,
-                'foto'              => $file->hashName(),
-                'company'           => $request->company,
-                'address_company'   => $request->address_company
+                'nama'      => $request->nama,
+                'umur'      => $request->umur,
+                'alamat'    => $request->alamat,
+                'instagram' => $request->instagram,
+                'number'    => $request->number,
+                'foto'      => $file->hashName(),
+                'tinggi'    => $request->tinggi,
+                'berat'     => $request->berat,
+                'minat'     => $request->minat
             ]);
         }
 
         Endorse::findOrFail($id)->update([
-            'name'              => $request->name,
-            'age'               => $request->age,
-            'address'           => $request->address,
-            'description'       => $request->description,
-            'price'             => $request->price,
-            // 'foto'              => $file->hashName(),
-            'company'           => $request->company,
-            'address_company'   => $request->address_company
+            'nama'      => $request->nama,
+            'umur'      => $request->umur,
+            'alamat'    => $request->alamat,
+            'instagram' => $request->instagram,
+            'number'    => $request->number,
+            'tinggi'    => $request->tinggi,
+            'berat'     => $request->berat,
+            'minat'     => $request->minat
         ]);
 
         toastr()->success('Data Berhasil di Ubah');

@@ -3,31 +3,11 @@
 @section('content')
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-{{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
-{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
-<!------ Include the above in your HEAD tag ---------->
 
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
-        {{-- <div class="content-header row">
-            <div class="content-header-left col-md-9 col-12 mb-2">
-                <div class="row breadcrumbs-top">
-                    <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Transaksi Detail</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                <div class="form-group breadcrum-right">
-                    <div class="dropdown">
-                        <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <div class="content-body">
             <!-- app ecommerce details start -->
             {{-- <div class="app-ecommerce-details"> --}}
@@ -57,15 +37,15 @@
                                             <div class="row pb-5 p-5">
                                                 <div class="col-md-6">
                                                     <p class="font-weight-bold mb-4">Informasi Pemesanan</p>
-                                                    <p class="mb-1">Nama : {{ $data->name }}</p>
+                                                    <p class="mb-1">Nama : {{ $data->nama }}</p>
                                                     {{-- <p>Acme Inc</p> --}}
-                                                    <p class="mb-1">Alamat : {{ $data->address }}</p>
-                                                    <p class="mb-1">No Telpn / WhatsApp : 0{{ $data->phone }}</p>
+                                                    <p class="mb-1">Alamat : {{ $data->alamat }}</p>
+                                                    <p class="mb-1">Email : {{ $data->email }}</p>
                                                 </div>
 
                                                 <div class="col-md-6 text-right">
                                                     <p class="font-weight-bold mb-4">Catatan</p>
-                                                    <p class="mb-1">{{ $data->note }}</p>
+                                                    <p class="mb-1">{{ $data->catatan }}</p>
                                                 </div>
                                             </div>
 
@@ -91,9 +71,9 @@
                                                                 <td>
                                                                     <img src="{{ asset('storage/avatar') }}/{{ $data->endorse->foto }}" width="200">
                                                                 </td>
-                                                                <td>{{ $data->endorse->name }}</td>
-                                                                <td>{{ $data->endorse->age }}</td>
-                                                                <td>{{ $data->endorse->address }}</td>
+                                                                <td>{{ $data->endorse->nama }}</td>
+                                                                <td>{{ $data->endorse->umur }}</td>
+                                                                <td>{{ $data->endorse->alamat }}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -103,7 +83,7 @@
                                             <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                                                 <div class="py-3 px-5 text-right">
                                                     <div class="mb-2">Harga</div>
-                                                    <div class="h2 font-weight-light">{{ number_format($data->endorse->price) }}</div>
+                                                    <div class="h2 font-weight-light">Rp. {{ number_format($data->harga) }}</div>
                                                 </div>
                                             </div>
                                         </div>

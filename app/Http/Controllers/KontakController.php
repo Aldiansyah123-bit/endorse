@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kontak;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class KontakController extends Controller
 {
@@ -37,7 +39,29 @@ class KontakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'nama'  => 'required',
+            'email' => 'required',
+            'pesan' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),400);
+        }
+
+        $data = Kontak::create([
+            'nama'  => $request->nama,
+            'email' => $request->email,
+            'pesan' => $request->pesan,
+        ]);
+        if ($data instanceof Model) {
+            toastr()->success('Data Berhasil di Simpan !');
+
+            return redirect('/');
+        }
+        // dd($data);
+        toastr()->error('Data Gagal di Simpan');
+        return back();
     }
 
     /**
@@ -82,6 +106,8 @@ class KontakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kontak::destroy($id);
+        toastr()->success('Data Berhasil Di Hapus');
+        return back();
     }
 }

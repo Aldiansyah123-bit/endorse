@@ -13,7 +13,12 @@
                 <div class="modal-body">
                     <label>Nama Endorse: </label>
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Nama Endorse" class="form-control" value="{{ $item-> }}">
+                        <select class="select2 form-control" name="endorse_id">
+                            {{-- <option>--Select--</option> --}}
+                            @foreach ($endorse as $i)
+                                <option value="{{ $i->id }}">{{ $i->nama }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <label>Nama Paket : </label>
                     <div class="form-group">

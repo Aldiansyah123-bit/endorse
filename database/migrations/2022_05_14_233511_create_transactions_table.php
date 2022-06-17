@@ -18,8 +18,9 @@ class CreateTransactionsTable extends Migration
             $table->string('no_invoice',50);
             $table->unsignedBigInteger('endorse_id');
             $table->string('nama',50);
-            $table->bigInteger('email');
+            $table->string('email');
             $table->string('alamat',150);
+            $table->string('harga',150);
             $table->text('catatan');
             $table->string('foto',100);
             $table->timestamps();

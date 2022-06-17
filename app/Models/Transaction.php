@@ -10,7 +10,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'no_invoice','endorse_id','nama','email','alamat','catatan','foto'
+        'no_invoice','endorse_id','nama','email','alamat','catatan','foto','harga'
     ];
 
     public function endorse()

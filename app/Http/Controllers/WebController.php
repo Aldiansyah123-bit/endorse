@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Endorse;
+use App\Models\Kontak;
+use App\Models\Paket;
 use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -36,8 +38,9 @@ class WebController extends Controller
     public function detail($id)
     {
         $data =  Endorse::findOrFail($id);
+        $paket = Paket::where('endorse_id',$data->id)->get();
 
-        return view('detail', compact('data'));
+        return view('detail', compact('data','paket'));
     }
 
     public function listdetail($id)
@@ -65,10 +68,11 @@ class WebController extends Controller
     {
         $validator = Validator::make($request->all(),[
             // 'endorse_id'    => 'required',
-            'name'          => 'required',
-            'phone'         => 'required',
-            'address'       => 'required',
-            'note'          => 'required',
+            'nama'          => 'required',
+            'email'         => 'required',
+            'alamat'       => 'required',
+            'harga'          => 'required',
+            'catatan'          => 'required',
             'foto'          => 'required',
         ]);
 
@@ -85,21 +89,18 @@ class WebController extends Controller
         //generate no invoice
         $no_invoice = 'INV-'.Str::upper($random);
 
-        // $file       = $request->foto;
-        // $filename   = $file->getClientOrginalName();
-        // $file->move(public_path('/storage/bukti',$filename));
         $file = $request->file('foto');
         $file->storeAs('public/bukti',$file->hashName());
 
-        // $data =  Endorse::findOrFail('id');
 
         $data = Transaction::create([
             'no_invoice'    => $no_invoice,
             'endorse_id'    => $request->endorse_id,
-            'name'          => $request->name,
-            'phone'         => $request->phone,
-            'address'       => $request->address,
-            'note'          => $request->note,
+            'nama'          => $request->nama,
+            'email'         => $request->email,
+            'alamat'       => $request->alamat,
+            'harga'       => $request->harga,
+            'catatan'          => $request->catatan,
             'foto'          => $file->hashName(),
         ]);
 
@@ -115,5 +116,32 @@ class WebController extends Controller
         // toastr()->success('Terimakasih atas Pemesanannya, Tunggu ya Informasi Selanjutnya Admin akan menghubungi kamu melalui Nomor Telepon / WhatsApp yang terdaftar');
 
         // return redirect('list');
+    }
+
+    public function pesan(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            'nama'  => 'required',
+            'email' => 'required',
+            'pesan' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),400);
+        }
+
+        $data = Kontak::create([
+            'nama'  => $request->nama,
+            'email' => $request->email,
+            'pesan' => $request->pesan,
+        ]);
+        // if ($data instanceof Model) {
+
+        //     return redirect('home');
+        // }
+        toastr()->success('Terimakasih Telah Menghubungi Kami !!');
+        // dd($data);
+        // toastr()->error('Data Gagal di Simpan');
+        return back();
     }
 }

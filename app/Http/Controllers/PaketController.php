@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Endorse;
 use App\Models\Paket;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PaketController extends Controller
 {
@@ -16,9 +18,9 @@ class PaketController extends Controller
     public function index()
     {
         $data       = Paket::orderBy('id','DESC')->get();
-        // $endorse    = Endorse::
+        $endorse    = Endorse::orderBy('id','DESC')->get();
 
-        return view('admin.paket',compact('data'));
+        return view('admin.paket',compact('data','endorse'));
     }
 
     /**
@@ -39,7 +41,31 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'nama'  => 'required',
+            'harga' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),400);
+        }
+
+        $data = Paket::create([
+            'endorse_id'    => $request->endorse_id,
+            'nama'          => $request->nama,
+            'harga'         => $request->harga,
+            'keterangan'    => $request->keterangan,
+        ]);
+
+        if ($data instanceof Model) {
+            toastr()->success('Data Berhasil di Simpan !');
+
+            return redirect()->route('paket.index');
+        }
+        // dd($data);
+        toastr()->error('Data Gagal di Simpan');
+        return back();
     }
 
     /**
@@ -73,7 +99,25 @@ class PaketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'nama'  => 'required',
+            'harga' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),400);
+        }
+
+        Paket::findOrFail($id)->update([
+            'endorse_id'    => $request->endorse_id,
+            'nama'          => $request->nama,
+            'harga'         => $request->harga,
+            'keterangan'    => $request->keterangan,
+        ]);
+
+        toastr()->success('Data Berhasil di Update !');
+        return back();
     }
 
     /**
@@ -84,6 +128,9 @@ class PaketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Paket::destroy($id);
+        toastr()->success('Data Berhasil di Hapus');
+
+        return back();
     }
 }

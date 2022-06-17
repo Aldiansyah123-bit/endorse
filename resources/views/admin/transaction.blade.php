@@ -30,7 +30,7 @@
                                                 <tr>
                                                     <th>Nomor Invoice</th>
                                                     <th>Nama Pesanan</th>
-                                                    <th>No Telepon</th>
+                                                    <th>Email</th>
                                                     <th>Bukti Pembayaran</th>
                                                     <th>Aksi</th>
                                                 </tr>
@@ -40,8 +40,8 @@
 
                                                     <tr>
                                                         <td>{{ $item->no_invoice }}</td>
-                                                        <td>{{ $item->name }}</td>
-                                                        <td>{{ $item->phone }}</td>
+                                                        <td>{{ $item->nama }}</td>
+                                                        <td>{{ $item->email }}</td>
                                                         <td class="product-img"><img src="{{ asset('storage/bukti') }}/{{ $item->foto }}" alt="Img placeholder" width="200"></td>
                                                         <td>
                                                             <a href="{{ route('transaction.show',[$item->id]) }}" class="btn btn-icon btn-icon rounded-circle btn-flat-primary mr-1 mb-1"><i class="feather icon-eye"></i></a>

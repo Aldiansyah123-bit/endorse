@@ -29,9 +29,9 @@
             <div class="box">
                 <div class="user">
                     <img src="{{ asset('storage/avatar') }}/{{ $item->foto }}" width="300" alt="">
-                    <h3>{{ $item->name }}</h3>
+                    <h3>{{ $item->nama }}</h3>
                     <div class="comment">
-                        {{ $item->description }}
+                        {{ $item->minat }}
                     </div>
                     <a href="/list" class="btn">read more</a>
                 </div>
@@ -73,7 +73,8 @@
     <div class="image">
         <img src="images/contact-img.png" alt="">
     </div>
-    <form action="">
+    <form action="/pesan" method="POST">
+        @csrf
         <h1 class="heading">contact us</h1>
         <div class="inputBox">
             <input type="text" name="nama" required>
@@ -85,10 +86,10 @@
             <label>email</label>
         </div>
         <div class="inputBox">
-            <textarea required name="" id="" name="pesan" cols="30" rows="10"></textarea>
+            <textarea required id="" name="pesan" cols="30" rows="10"></textarea>
             <label>pesan</label>
         </div>
-        <input type="submit" class="btn" value="send message">
+        <button type="submit" class="btn">Send Mesage</button>
     </form>
 </section>
 <!-- contact section edns -->

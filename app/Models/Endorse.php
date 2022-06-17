@@ -12,4 +12,9 @@ class Endorse extends Model
     protected $fillable = [
         'nama','umur','alamat','instagram','number','tinggi','berat','foto','minat'
     ];
+
+    public function paket()
+    {
+        return $this->belongsTo(Paket::class);
+    }
 }

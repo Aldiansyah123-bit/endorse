@@ -16,8 +16,7 @@
                                 <div class="card-body text-center">
                                     <img src="{{ asset('admin') }}/app-assets/images/elements/decore-left.png" class="img-left" alt="
                                         card-img-left">
-                                    <img src="{{ asset('admin') }}/app-assets/images/elements/decore-right.png" class="img-right" alt="
-        c                               ard-img-right">
+                                    <img src="{{ asset('admin') }}/app-assets/images/elements/decore-right.png" class="img-right" alt="card-img-right">
                                     <div class="avatar avatar-xl bg-primary shadow mt-0">
                                         <div class="avatar-content">
                                             <i class="feather icon-award white font-large-1"></i>

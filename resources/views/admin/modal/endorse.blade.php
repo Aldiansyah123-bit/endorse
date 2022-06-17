@@ -13,33 +13,33 @@
                 <div class="modal-body">
                     <label>Nama: </label>
                     <div class="form-group">
-                        <input type="text" name="nama" placeholder="Nama" class="form-control" value="{{ $itemm->name }}">
+                        <input type="text" name="nama" placeholder="Nama" class="form-control" value="{{ $item->nama }}">
                     </div>
                     <label>Umur: </label>
                     <div class="form-group">
-                        <input type="number" name="umur" placeholder="Umur" class="form-control" value="{{ $itemm->age }}">
+                        <input type="number" name="umur" placeholder="Umur" class="form-control" value="{{ $item->umur }}">
                     </div>
                     <label>Alamat: </label>
                     <div class="form-group">
-                        <input type="text" name="alamat" placeholder="Alamat" class="form-control" value="{{ $itemm->address }}">
+                        <input type="text" name="alamat" placeholder="Alamat" class="form-control" value="{{ $item->alamat }}">
                     </div>
 
                     <label>Nama Instagram: </label>
                     <div class="form-group">
-                        <input type="text" name="instagram" placeholder="Nama Instagram" class="form-control" value="{{ $itemm->instagram }}">
+                        <input type="text" name="instagram" placeholder="Nama Instagram" class="form-control" value="{{ $item->instagram }}">
                     </div>
 
                     <label>Jumlah Follower : </label>
                     <div class="form-group">
-                        <input type="number" name="number" placeholder="Jumlah Follower" class="form-control" value="{{ $itemm->number }}">
+                        <input type="number" name="number" placeholder="Jumlah Follower" class="form-control" value="{{ $item->number }}">
                     </div>
                     <label>Tinggi Badan: </label>
                     <div class="form-group">
-                        <input type="number" name="tinggi" placeholder="Tinggi Badan" class="form-control" value="{{ $itemm->tinggi }}">
+                        <input type="number" name="tinggi" placeholder="Tinggi Badan" class="form-control" value="{{ $item->tinggi }}">
                     </div>
                     <label>Berat Badan: </label>
                     <div class="form-group">
-                        <input type="number" name="berat" placeholder="Berat Badan" class="form-control" value="{{ $itemm->berat }}">
+                        <input type="number" name="berat" placeholder="Berat Badan" class="form-control" value="{{ $item->berat }}">
                     </div>
 
 
@@ -51,7 +51,7 @@
 
                     <label>Minat & Bakat: </label>
                     <div class="form-group">
-                        <textarea type="text" name="minat" placeholder="Minat & Bakat" class="form-control" rows="3"></textarea>
+                        <textarea type="text" name="minat" placeholder="Minat & Bakat" class="form-control" rows="3">{{ $item->minat }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

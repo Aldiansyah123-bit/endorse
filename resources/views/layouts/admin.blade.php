@@ -16,33 +16,6 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/tables/datatable/datatables.min.css">
-    {{-- <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href=".{{ asset('admin') }}/app-assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href=".{{ asset('admin') }}/app-assets/vendors/css/extensions/tether-theme-arrows.css">
-    <link rel="stylesheet" type="text/css" href=".{{ asset('admin') }}/app-assets/vendors/css/extensions/tether.min.css">
-    <link rel="stylesheet" type="text/css" href=".{{ asset('admin') }}/app-assets/vendors/css/extensions/shepherd-theme-default.css">
-    <!-- END: Vendor CSS-->
-
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/themes/semi-dark-layout.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href=".{{ asset('admin') }}/app-assets/css/pages/dashboard-analytics.css">
-    <link rel="stylesheet" type="text/css" href=".{{ asset('admin') }}/app-assets/css/pages/card-analytics.css">
-    <link rel="stylesheet" type="text/css" href=".{{ asset('admin') }}/app-assets/css/plugins/tour/tour.css">
-    <!-- END: Page CSS-->
-
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/assets/css/style.css">
-    <!-- END: Custom CSS--> --}}
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/vendors.min.css">
@@ -50,6 +23,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/extensions/tether-theme-arrows.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/extensions/tether.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/extensions/shepherd-theme-default.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/vendors/css/extensions/swiper.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -58,14 +34,14 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/colors.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/components.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/themes/semi-dark-layout.css">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/themes/semi-dark-layout.css"> --}}
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/core/colors/palette-gradient.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/pages/dashboard-analytics.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/pages/card-analytics.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/plugins/tour/tour.css">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/plugins/tour/tour.css"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('admin') }}/app-assets/css/pages/app-user.css">
     <!-- END: Page CSS-->
 
@@ -130,7 +106,7 @@
                 <li class="nav-item {{ request()->is('endorse')? 'active': '' }} ">
                     <a href="{{ route('endorse.index') }}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Datatable">Data Endorse</span></a>
                 </li>
-                <li class="nav-item {{ request()->is('paket')? 'active': '' }} ">
+                <li class="nav-item {{ request()->is('paket')? 'active': '' }}">
                     <a href="{{ route('paket.index') }}"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Datatable">Data Paket</span></a>
                 </li>
                 <li class="nav-item {{ request()->is('transaction')? 'active': '' }}">
@@ -164,9 +140,9 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ asset('admin') }}/app-assets/vendors/js/charts/apexcharts.min.js"></script>
+    {{-- <script src="{{ asset('admin') }}/app-assets/vendors/js/charts/apexcharts.min.js"></script>
     <script src="{{ asset('admin') }}/app-assets/vendors/js/extensions/tether.min.js"></script>
-    <script src="{{ asset('admin') }}/app-assets/vendors/js/extensions/shepherd.min.js"></script>
+    <script src="{{ asset('admin') }}/app-assets/vendors/js/extensions/shepherd.min.js"></script> --}}
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
@@ -190,26 +166,6 @@
     <script src="{{ asset('admin') }}/app-assets/js/scripts/datatables/datatable.js"></script>
     <script src="{{ asset('admin') }}/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
     <!-- END: Page JS-->
-
-    <!-- BEGIN: Vendor JS-->
-    {{-- <script src="{{ asset('admin') }}/app-assets/vendors/js/vendors.min.js"></script>
-    <!-- BEGIN Vendor JS-->
-
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ asset('admin') }}/app-assets/vendors/js/charts/apexcharts.min.js"></script>
-    <script src="{{ asset('admin') }}/app-assets/vendors/js/extensions/tether.min.js"></script>
-    <script src="{{ asset('admin') }}/app-assets/vendors/js/extensions/shepherd.min.js"></script>
-    <!-- END: Page Vendor JS-->
-
-    <!-- BEGIN: Theme JS-->
-    <script src="{{ asset('admin') }}/app-assets/js/core/app-menu.js"></script>
-    <script src="{{ asset('admin') }}/app-assets/js/core/app.js"></script>
-    <script src="{{ asset('admin') }}/app-assets/js/scripts/components.js"></script>
-    <!-- END: Theme JS-->
-
-    <!-- BEGIN: Page JS-->
-    <script src="{{ asset('admin') }}/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
-    <!-- END: Page JS--> --}}
 
 
 </body>

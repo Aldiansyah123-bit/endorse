@@ -46,22 +46,22 @@
                                                     <th>Nama Paket</th>
                                                     <th>Keterangan</th>
                                                     <th>Harga</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($data as $item)
                                                     <tr>
-                                                        <td class="product-img"><img src="{{ asset('storage/avatar') }}/{{ $item->foto }}" alt="Img placeholder" width="200">
-                                                        <td>{{ $item->name }}</td>
-                                                        <td>{{ $item->company }}</td>
-                                                        <td>{{ $item->address_company }}</td>
-                                                        <td>{{ $item->age }}</td>
+                                                        <td>{{ $item->endorse->nama }}</td>
+                                                        <td>{{ $item->nama }}</td>
+                                                        <td>{{ $item->keterangan }}</td>
+                                                        <td>Rp {{ number_format($item->harga) }}</td>
                                                         <td>
-                                                            <a href="{{ route('endorse.show',[$item->id]) }}" class="btn btn-icon btn-icon rounded-circle btn-flat-primary mr-1 mb-1"><i class="feather icon-eye"></i></a>
+                                                            {{-- <a href="{{ route('paket.show',[$item->id]) }}" class="btn btn-icon btn-icon rounded-circle btn-flat-primary mr-1 mb-1"><i class="feather icon-eye"></i></a> --}}
                                                             <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-success mr-1 mb-1" data-toggle="modal" data-target="#Update{{ $item->id }}"><i class="feather icon-edit"></i></button>
                                                             <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-danger mr-1 mb-1" data-toggle="modal" data-target="#Delete{{ $item->id }}"><i class="feather icon-trash"></i></button>
                                                         </td>
-                                                        @include('admin.modal.endorse')
+                                                        @include('admin.modal.paket')
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -91,9 +91,14 @@
             <form action="{{ route('paket.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <label>Nama Endorse: </label>
+                    <label>Nama Endorse</label>
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Nama Endorse" class="form-control">
+                        <select class="select2 form-control" name="endorse_id">
+                            {{-- <option>--Select--</option> --}}
+                            @foreach ($endorse as $i)
+                                <option value="{{ $i->id }}">{{ $i->nama }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <label>Nama Paket : </label>
                     <div class="form-group">
@@ -106,7 +111,7 @@
 
                     <label>Harga : </label>
                     <div class="form-group">
-                        <input type="text" name="harga" placeholder="Nama Instagram" class="form-control">
+                        <input type="number" name="harga" placeholder="Harga" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">

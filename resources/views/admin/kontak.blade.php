@@ -51,15 +51,12 @@
                                             <tbody>
                                                 @foreach ($data as $item)
                                                     <tr>
-                                                        <td class="product-img"><img src="{{ asset('storage/avatar') }}/{{ $item->foto }}" alt="Img placeholder" width="200">
                                                         <td>{{ $item->nama }}</td>
                                                         <td>{{ $item->email }}</td>
                                                         <td>{{ $item->pesan }}</td>
                                                         <td>
-                                                            <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-success mr-1 mb-1" data-toggle="modal" data-target="#Update{{ $item->id }}"><i class="feather icon-edit"></i></button>
                                                             <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-danger mr-1 mb-1" data-toggle="modal" data-target="#Delete{{ $item->id }}"><i class="feather icon-trash"></i></button>
                                                         </td>
-                                                        @include('admin.modal.endorse')
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -77,38 +74,24 @@
 </div>
 
 {{-- modal --}}
-<div class="modal fade text-left" id="CreateAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+<div class="modal fade text-left" id="Delete{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel33">Tambah Data</h4>
+                <h4 class="modal-title" id="myModalLabel33">Delete</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('paket.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('kontak.destroy',[$item->id]) }}" method="POST">
                 @csrf
+                @method('delete')
                 <div class="modal-body">
-                    <label>Nama Endorse: </label>
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Nama Endorse" class="form-control">
-                    </div>
-                    <label>Nama Paket : </label>
-                    <div class="form-group">
-                        <input type="text" name="nama" placeholder="Nama Paket" class="form-control">
-                    </div>
-                    <label>Keterangan: </label>
-                    <div class="form-group">
-                        <input type="text" name="keterangan" placeholder="Keterangan" class="form-control">
-                    </div>
-
-                    <label>Harga : </label>
-                    <div class="form-group">
-                        <input type="text" name="harga" placeholder="Nama Instagram" class="form-control">
-                    </div>
+                    Apakah data ingin dihapus
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 </div>
             </form>
         </div>
