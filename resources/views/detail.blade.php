@@ -49,33 +49,79 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <h5>Nama : {{ $data->nama }}
-                                </h5>
-                                <p class="text-success font-medium-2 mr-1 mb-0">Umur : {{ $data->umur }} Tahun</p>
+                                <h2>Nama : {{ $data->nama }}
+                                </h2>
+                                <h2>
+                                    <p class="text-success mr-1 mb-0">
+                                        Umur : {{ $data->umur }}
+                                    </p>
+                                </h2>
                                 <hr>
-                                <p>Minat & Bakat : {{ $data->minat }}</p>
+                                <p>
+                                    <h2>Minat & Bakat : {{ $data->minat }}</h2>
+                                </p>
                                 {{-- <div class="ecommerce-details-price d-flex flex-wrap">
                                     <p class="text-primary font-medium-3 mr-1 mb-0">Rp. {{ number_format($data->price) }}</p>
                                 </div> --}}
                                 <hr>
-                                <p class="font-weight-bold mb-25"> Alamat : {{ $data->alamat }}
-                                </p>
-                                <p class="font-weight-bold"> Tinggi Badan : {{ $data->tinggi }}
-                                    <p class="font-weight-bold"> Berat Badan : {{ $data->berat }}
-                                    {{-- <p class="font-weight-bold"> <i class="feather icon-navigation mr-50 font-medium-2"></i>{{ $data->address_company }} --}}
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <h2>
+                                                <p class="font-weight-bold mb-25">
+                                                    Instagram : {{ $data->instagram }}
+                                                </p>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <h2>
+                                                <p class="font-weight-bold">
+                                                    Follower : {{ $data->number }}
+                                                </p>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <h3>
+                                                <p class="font-weight-bold"> Tinggi Badan : {{ $data->tinggi }}</p>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <h3>
+                                                <p class="font-weight-bold"> Berat Badan : {{ $data->berat }}</p>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="font-weight-bold mb-25">
+                                    <h2>
+                                        Alamat : {{ $data->alamat }}
+                                    </h2>
                                 </p>
                                 <hr>
                                 <form action="/transaksi" method="POST" enctype="multipart/form-data" class="form-horizontal" novalidate>
                                     @csrf
                                     <div class="form-group">
-                                        <label class="font-weight-bold">Harga</label>
-                                        <ul class="list-unstyled mb-0">
+                                        <label class="font-weight-bold">
+                                            <h2>
+                                                Harga
+                                            </h2>
+                                        </label>
+                                        <ul class="list-unstyled mb-2">
                                             @foreach ($paket as $item)
-                                                <li class="d-inline-block mr-2">
+                                                <li class="d-inline-block mr-5">
                                                     <fieldset>
                                                         <label>
+                                                            <h3>
                                                             <input type="radio" name="harga" data-toggle="modal" data-target="#Update" value="{{ $item->harga }}">
-                                                            {{ $item->nama }}
+                                                                {{ $item->nama }}
+                                                            </h3>
                                                         </label>
                                                     </fieldset>
                                                 </li>
@@ -175,7 +221,7 @@
                             </tr>
                             <tr>
                                 <th class="border-0 text-uppercase small font-weight-bold">Harga :</th>
-                                <th> Rp. {{ number_format($item->harga) }}</th>
+                                <th> Rp. {{ number_format($item->harga,0,',','.') }}</th>
                             </tr>
                             <tr>
                                 <th class="border-0 text-uppercase small font-weight-bold">Keterangan :</th>

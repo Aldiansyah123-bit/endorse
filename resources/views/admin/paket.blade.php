@@ -9,7 +9,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Data Endorse</h2>
+                        <h2 class="content-header-title float-left mb-0">Data Paket Endorse</h2>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                                                         <td>{{ $item->endorse->nama }}</td>
                                                         <td>{{ $item->nama }}</td>
                                                         <td>{{ $item->keterangan }}</td>
-                                                        <td>Rp {{ number_format($item->harga) }}</td>
+                                                        <td>Rp {{ number_format($item->harga,0,',','.') }}</td>
                                                         <td>
                                                             {{-- <a href="{{ route('paket.show',[$item->id]) }}" class="btn btn-icon btn-icon rounded-circle btn-flat-primary mr-1 mb-1"><i class="feather icon-eye"></i></a> --}}
                                                             <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-success mr-1 mb-1" data-toggle="modal" data-target="#Update{{ $item->id }}"><i class="feather icon-edit"></i></button>
@@ -91,7 +91,7 @@
             <form action="{{ route('paket.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <label>Nama Endorse</label>
+                    <label>Nama Talent</label>
                     <div class="form-group">
                         <select class="select2 form-control" name="endorse_id">
                             {{-- <option>--Select--</option> --}}

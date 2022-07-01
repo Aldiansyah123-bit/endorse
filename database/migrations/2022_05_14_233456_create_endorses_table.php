@@ -16,12 +16,12 @@ class CreateEndorsesTable extends Migration
         Schema::create('endorses', function (Blueprint $table) {
             $table->id();
             $table->string('nama',50);
-            $table->integer('umur');
+            $table->string('umur',20);
             $table->string('alamat',100);
             $table->text('instagram');
-            $table->integer('number');
-            $table->integer('tinggi');
-            $table->integer('berat');
+            $table->string('number',50);
+            $table->string('tinggi',50);
+            $table->string('berat',50);
             $table->string('foto',100);
             $table->string('minat',100);
             $table->timestamps();

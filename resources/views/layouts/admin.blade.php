@@ -70,7 +70,8 @@
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{ Auth::user()->name }}</span><span class="user-status">Available</span></div><span><img class="round" src="{{ asset('admin') }}/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="page-user-profile.html"><i class="feather icon-user"></i> Edit Profile</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                {{-- <a class="dropdown-item" href="page-user-profile.html"><i class="feather icon-user"></i> Edit Profile</a> --}}
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -104,16 +105,20 @@
                 </li>
                 <li class="navigation-header"><span>pages</span>
                 <li class="nav-item {{ request()->is('endorse')? 'active': '' }} ">
-                    <a href="{{ route('endorse.index') }}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Datatable">Data Endorse</span></a>
+                    <a href="{{ route('endorse.index') }}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Datatable">Data Talent</span></a>
                 </li>
                 <li class="nav-item {{ request()->is('paket')? 'active': '' }}">
-                    <a href="{{ route('paket.index') }}"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Datatable">Data Paket</span></a>
+                    <a href="{{ route('paket.index') }}"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Datatable">Data Paket Endorse</span></a>
                 </li>
                 <li class="nav-item {{ request()->is('transaction')? 'active': '' }}">
-                    <a href="{{ route('transaction.index') }}"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Datatable">Data Transaksi</span></a>
+                    <a href="{{ route('transaction.index') }}"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Datatable">Data Transaksi</span>
+                        <span class="badge badge badge-pill badge-success float-right mr-2">{{ $counts ?? '' }}</span>
+                    </a>
                 </li>
                 <li class="nav-item {{ request()->is('kontak')? 'active': '' }}">
-                    <a href="{{ route('kontak.index') }}"><i class="feather icon-clipboard"></i><span class="menu-title" data-i18n="Datatable">Kontak</span></a>
+                    <a href="{{ route('kontak.index') }}"><i class="feather icon-clipboard"></i><span class="menu-title" data-i18n="Datatable">Kontak</span>
+                        <span class="badge badge badge-pill badge-success float-right mr-2">{{ $count ?? '' }}</span></a>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -140,9 +145,7 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    {{-- <script src="{{ asset('admin') }}/app-assets/vendors/js/charts/apexcharts.min.js"></script>
-    <script src="{{ asset('admin') }}/app-assets/vendors/js/extensions/tether.min.js"></script>
-    <script src="{{ asset('admin') }}/app-assets/vendors/js/extensions/shepherd.min.js"></script> --}}
+    <script src="{{ asset('admin') }}/app-assets/vendors/js/charts/apexcharts.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->

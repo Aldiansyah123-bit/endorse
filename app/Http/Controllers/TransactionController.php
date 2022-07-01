@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kontak;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +19,9 @@ class TransactionController extends Controller
         $data = Transaction::with(['endorse'])
                             ->orderBy('id','DESC')
                             ->get();
-        return view('admin.transaction', compact('data'));
+        $count = Kontak::count();
+        $counts= Transaction::count();
+        return view('admin.transaction', compact('data','count','counts'));
     }
 
     /**
@@ -51,8 +54,10 @@ class TransactionController extends Controller
     public function show($id)
     {
         $data = Transaction::findOrFail($id);
+        $count = Kontak::count();
+        $counts= Transaction::count();
 
-        return view('admin.detail.transaction',compact('data'));
+        return view('admin.detail.transaction',compact('data','count','counts'));
     }
 
     /**

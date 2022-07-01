@@ -11,7 +11,7 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
-                    <label>Nama Endorse: </label>
+                    <label>Nama Talent: </label>
                     <div class="form-group">
                         <select class="select2 form-control" name="endorse_id">
                             {{-- <option>--Select--</option> --}}
@@ -51,7 +51,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('endorse.destroy',[$item->id]) }}" method="POST">
+            <form action="{{ route('paket.destroy',[$item->id]) }}" method="POST">
                 @csrf
                 @method('delete')
                 <div class="modal-body">

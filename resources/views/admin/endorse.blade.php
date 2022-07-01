@@ -9,7 +9,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Data Endorse</h2>
+                        <h2 class="content-header-title float-left mb-0">Data Talent</h2>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     </div>
                     <label>Umur: </label>
                     <div class="form-group">
-                        <input type="number" name="umur" placeholder="Umur" class="form-control">
+                        <input type="text" name="umur" placeholder="Umur" class="form-control">
                     </div>
                     <label>Alamat: </label>
                     <div class="form-group">
@@ -115,15 +115,15 @@
 
                     <label>Jumlah Follower : </label>
                     <div class="form-group">
-                        <input type="number" name="number" placeholder="Jumlah Follower" class="form-control">
+                        <input type="text" name="number" placeholder="Jumlah Follower" class="form-control">
                     </div>
                     <label>Tinggi Badan: </label>
                     <div class="form-group">
-                        <input type="number" name="tinggi" placeholder="Tinggi Badan" class="form-control">
+                        <input type="text" name="tinggi" placeholder="Tinggi Badan" class="form-control">
                     </div>
                     <label>Berat Badan: </label>
                     <div class="form-group">
-                        <input type="number" name="berat" placeholder="Berat Badan" class="form-control">
+                        <input type="text" name="berat" placeholder="Berat Badan" class="form-control">
                     </div>
 
 

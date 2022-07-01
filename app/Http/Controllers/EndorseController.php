@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Endorse;
+use App\Models\Kontak;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,8 +20,10 @@ class EndorseController extends Controller
     public function index()
     {
         $data = Endorse::orderBy('id','DESC')->get();
+        $count = Kontak::count();
+        $counts= Transaction::count();
 
-        return view('admin.endorse', compact('data'));
+        return view('admin.endorse', compact('data','count','counts'));
     }
 
     /**

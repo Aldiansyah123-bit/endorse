@@ -23,7 +23,7 @@
 </section>
 
 <section class="review" id="endorse">
-    <h1 class="heading"> Endorse </h1>
+    <h1 class="heading"> Talent </h1>
     <div class="box-container">
         @foreach ($endorse as $item)
             <div class="box">
@@ -31,7 +31,7 @@
                     <img src="{{ asset('storage/avatar') }}/{{ $item->foto }}" width="300" alt="">
                     <h3>{{ $item->nama }}</h3>
                     <div class="comment">
-                        {{ $item->minat }}
+                        Follower {{ $item->number }}
                     </div>
                     <a href="/list" class="btn">read more</a>
                 </div>

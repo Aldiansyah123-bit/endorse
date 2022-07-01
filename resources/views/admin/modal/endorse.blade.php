@@ -17,7 +17,7 @@
                     </div>
                     <label>Umur: </label>
                     <div class="form-group">
-                        <input type="number" name="umur" placeholder="Umur" class="form-control" value="{{ $item->umur }}">
+                        <input type="text" name="umur" placeholder="Umur" class="form-control" value="{{ $item->umur }}">
                     </div>
                     <label>Alamat: </label>
                     <div class="form-group">
@@ -31,15 +31,15 @@
 
                     <label>Jumlah Follower : </label>
                     <div class="form-group">
-                        <input type="number" name="number" placeholder="Jumlah Follower" class="form-control" value="{{ $item->number }}">
+                        <input type="text" name="number" placeholder="Jumlah Follower" class="form-control" value="{{ $item->number }}">
                     </div>
                     <label>Tinggi Badan: </label>
                     <div class="form-group">
-                        <input type="number" name="tinggi" placeholder="Tinggi Badan" class="form-control" value="{{ $item->tinggi }}">
+                        <input type="text" name="tinggi" placeholder="Tinggi Badan" class="form-control" value="{{ $item->tinggi }}">
                     </div>
                     <label>Berat Badan: </label>
                     <div class="form-group">
-                        <input type="number" name="berat" placeholder="Berat Badan" class="form-control" value="{{ $item->berat }}">
+                        <input type="text" name="berat" placeholder="Berat Badan" class="form-control" value="{{ $item->berat }}">
                     </div>
 
 

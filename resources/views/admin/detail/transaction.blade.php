@@ -83,7 +83,7 @@
                                             <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                                                 <div class="py-3 px-5 text-right">
                                                     <div class="mb-2">Harga</div>
-                                                    <div class="h2 font-weight-light">Rp. {{ number_format($data->harga) }}</div>
+                                                    <div class="h2 font-weight-light">Rp. {{ number_format($data->harga,0,',','.') }}</div>
                                                 </div>
                                             </div>
                                         </div>

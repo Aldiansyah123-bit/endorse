@@ -29,9 +29,9 @@
             <div class="box">
                 <div class="user">
                     <img src="{{ asset('storage/avatar') }}/{{ $item->foto }}" width="300" alt="">
-                    <h3>{{ $item->name }}</h3>
+                    <h3>{{ $item->nama }}</h3>
                     <div class="comment">
-                        {{ $item->description }}
+                        Follower {{ $item->number }}
                     </div>
                     <a href="/list/{{ $item->id }}" class="btn">details</a>
                 </div>

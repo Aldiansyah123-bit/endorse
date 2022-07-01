@@ -19,16 +19,16 @@
     @toastr_render
     <!-- header section starts  -->
 <header>
-    <a href="#" class="logo"><span>Endorse</span>App</a>
+    <a href="#" class="logo"><span>Talent</span>App</a>
         <input type="checkbox" id="menu-bar">
         <label for="menu-bar" class="fas fa-bars"></label>
         <nav class="navbar">
             <a href="/#home">home</a>
-            <a href="/#endorse">endorse</a>
+            <a href="/#endorse">talent</a>
             <a href="/#about">about</a>
             <!-- <a href="#review">review</a>
             <a href="#pricing">pricing</a> -->
-            <a href="#contact">contact</a>
+            <a href="/#contact">contact</a>
         </nav>
 </header>
 

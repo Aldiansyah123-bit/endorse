@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Endorse;
+use App\Models\Kontak;
 use App\Models\Paket;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,8 +21,10 @@ class PaketController extends Controller
     {
         $data       = Paket::orderBy('id','DESC')->get();
         $endorse    = Endorse::orderBy('id','DESC')->get();
+        $count      = Kontak::count();
+        $counts     = Transaction::count();
 
-        return view('admin.paket',compact('data','endorse'));
+        return view('admin.paket',compact('data','endorse','count','counts'));
     }
 
     /**

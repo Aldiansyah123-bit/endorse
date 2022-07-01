@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kontak;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -17,8 +18,10 @@ class KontakController extends Controller
     public function index()
     {
         $data = Kontak::orderBy('id','DESC')->get();
+        $count = Kontak::count();
+        $counts= Transaction::count();
 
-        return view('admin.kontak',compact('data'));
+        return view('admin.kontak',compact('data','count','counts'));
     }
 
     /**
@@ -72,7 +75,7 @@ class KontakController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Kontak::findOrFail($id);
     }
 
     /**
